@@ -1,0 +1,39 @@
+<div class="container">
+
+
+     <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label>Nom Chaussure en tapant</label>
+            <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+        </div>
+    </form> 
+   <!--  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+    <label><b>Nom Chaussure : </b>  </label>
+    <input type="text" class="form-control" [(ngModel)]="nomChaussure" name="nomChaussure" class="form-control">
+    <button type="button" (click)="rechercherChauss()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+    </div>
+    </form> -->
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <thead>
+    <tr> <th>Id</th><th>Nom</th> <th>Prix</th>  <th>Pointure</th>  <th>Couleur</th> <th> Lieu de creation</th> </tr> 
+    </thead>
+    <tbody *ngFor="let chaussure of chaussures | searchFilter: searchTerm ">
+    <!-- <tbody *ngFor="let chaussure of chaussures"> -->
+        <tr > 
+            <td>{{chaussure.idChaussure}}</td> 
+            <td>{{chaussure.nomChaussure}}</td> 
+            <td>{{chaussure.prixChaussure}}</td> 
+            <td>{{chaussure.pointureChaussure}}</td> 
+            <td>{{chaussure.couleurChaussure}} </td>
+            <td>{{chaussure.lieuC?.idLieu}}</td>
+          </tr>  
+            
+                                           
+ </tbody> 
+</table> 
+</div> 
+</div> 
+</div>  

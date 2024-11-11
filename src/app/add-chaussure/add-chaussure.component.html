@@ -1,0 +1,65 @@
+<div class="container"> 
+    <div> 
+    <h2>Ajouter un chaussure :</h2>              
+    </div>
+    <form >  
+           
+        <div hidden class="col-sm-2 col-md-2 col-lg-2"> 
+          <label >ID  chaussure</label> 
+          <input   type="text"  [(ngModel)]="newChaussure.idChaussure"   
+              name="idChaussure" class="form-control"> 
+         </div> 
+     
+        <div class="col-sm-4 col-md-4 col-lg-4" > 
+          <label >Nom </label> 
+          <input  type="text"[(ngModel)]= "newChaussure.nomChaussure"   
+              name="nomChaussure" class="form-control"> 
+        </div> 
+
+        <div class="col-sm-2 col-md-2 col-lg-2"> 
+          <label >Prix </label> 
+          <input type="number"   [(ngModel)]= "newChaussure.prixChaussure"   
+              name="prixChaussure" class="form-control"> 
+        </div> 
+
+        <div class="col-sm-4 col-md-4 col-lg-4"> 
+            <label  for="pointureChaussure" >Pointure</label> 
+            <select id="pointureChaussure"  [(ngModel)]= "newChaussure.pointureChaussure"  
+                name="pointureChaussure" class="form-control">
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+            </select>
+        </div> 
+
+        <div class="col-sm-4 col-md-4 col-lg-4"> 
+            <label for="couleurChaussure" >Couleur</label> 
+            <select id="couleurChaussure"  [(ngModel)]= "newChaussure.couleurChaussure"  
+                name="couleurChaussure" class="form-control">
+                <option value="noir">  Noir</option>
+                <option value="blanc">Blanc</option>
+                <option value="rose">Rose</option>
+                <option value="rouge">Rouge</option>
+                <option value="vert">Vert</option>
+                <option value="bleu">Bleu</option>
+            </select>
+        </div> 
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Lieu de creation</label>
+            <select class="form-control form-control-lg" id="idLieu" name="idLieu"
+            [(ngModel)]="newIdLieu">
+            <option *ngFor="let lieu of lieu" [value]="lieu.idLieu" >
+            {{lieu.pays}}
+            </option>
+            </select>
+            </div>
+          
+  <div class="mt-2"> 
+<button type="submit" (click)="addChaussure()"class="btn btn-success">Ajouter</button> 
+  </div>    
+    </form> 
+</div>  

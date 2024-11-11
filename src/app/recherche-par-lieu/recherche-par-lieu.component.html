@@ -1,0 +1,39 @@
+<div class="container"> 
+
+        <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+          <label>Lieu de Creation </label>
+          <select class="form-control form-control-lg" id="idLieu" name="idLieu"
+          [(ngModel)]="idLieu" (change)="onChange()">
+          <option *ngFor="let lieu of lieu" value="{{lieu.idLieu}}">
+          {{lieu.pays}}
+          </option>
+          </select>
+          </div>
+        
+    
+
+    <div class="card shadow mb-4">                    
+      <div class="card-body">  
+
+       <table class="table table-striped"> 
+          <tr> <th>Id</th><th>Nom</th> <th>Prix</th>  <th>Pointure</th>  <th>Couleur</th> <th> Lieu de creation</th> </tr> 
+                <tbody *ngFor="let chaussure of chaussures"> 
+                         <tr > 
+                            <td>{{chaussure.idChaussure}}</td> 
+                            <td>{{chaussure.nomChaussure}}</td> 
+                            <td>{{chaussure.prixChaussure}}</td> 
+                            <td>{{chaussure.pointureChaussure}}</td> 
+                            <td>{{chaussure.couleurChaussure}} </td>
+                            <td>{{chaussure.lieu.pays}}</td>
+                            <!-- <td><a class="btn btn-danger" (click)="supprimerChaussure(chaussure)">Supprimer</a></td> 
+                            <td><a class="btn btn-success" [routerLink]="['/updateChaussure',chaussure.idChaussure]">Modifier</a></td> -->
+                           
+                          </tr>  
+                            
+                                                           
+                 </tbody> 
+      </table> 
+      </div> 
+    </div> 
+  </div>  
+  
