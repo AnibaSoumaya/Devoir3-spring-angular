@@ -1,3 +1,4 @@
+import { Image } from "./image.model";
 import { LieuCreationChaussure } from "./LieuCreationChaussure";
 
 export class chaussure { 
@@ -7,5 +8,9 @@ export class chaussure {
     pointureChaussure! :number;
     couleurChaussure! :string; 
     lieu! : LieuCreationChaussure;
+    image! : Image;
+    imageStr!:string;
+
+    images!: Image[];
 
     }  

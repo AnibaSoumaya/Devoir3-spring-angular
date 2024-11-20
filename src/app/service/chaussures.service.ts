@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthService } from './auth.service';
+import { Image } from '../model/image.model';
 
 const httpOptions = {headers: new HttpHeaders( {'Content-Type': 'application/json'} )};
 
@@ -122,6 +123,32 @@ export class ChaussuresService {
         return this.http.get<chaussure[]>(url, {headers:httpHeaders});
         }
         /*aaaa*/
+
+        uploadImage(file: File, filename: string): Observable<Image>{
+          const imageFormData = new FormData();
+          imageFormData.append('image', file, filename);
+          const url = `${this.apiURL+ '/image/upload'}`;
+          return this.http.post<Image>(url, imageFormData);
+          }
+          
+        loadImage(id: number): Observable<Image> {
+          const url = `${this.apiURL + '/image/get/info'}/${id}`;
+          return this.http.get<Image>(url);
+          }
+
+
+
+        uploadImageChauss(file: File, filename: string, idChauss:number): Observable<any>{
+          const imageFormData = new FormData();
+          imageFormData.append('image', file, filename);
+          const url = `${this.apiURL + '/image/uplaodImageChauss'}/${idChauss}`;
+          return this.http.post(url, imageFormData);
+        }
+
+        supprimerImage(id : number) {
+          const url = `${this.apiURL}/image/delete/${id}`;
+          return this.http.delete(url, httpOptions);
+          }
 
    
 
